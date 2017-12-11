@@ -13,3 +13,14 @@ For more reference, you can find our modified training code and generating code 
 
 **2. Feature learning**
 With the translated dataset that contain labels, feature learning methods are applied to train re-ID models.
+
+## Feature Learning
+The code for re-ID feature learning is modified from [IDE](https://github.com/zhunzhong07/IDE-baseline-Market-1501). 
+
+### Train
+
+ 1. Directly
+
+### Test
+
+### Results
