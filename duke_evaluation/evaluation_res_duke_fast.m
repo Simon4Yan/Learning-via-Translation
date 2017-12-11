@@ -113,8 +113,6 @@ r1 = 0; % rank 1 precision with single query
 r1_max_rerank = 0; % rank 1 precision with MultiQ_max + re-ranking
 r1_pairwise = zeros(nQuery, 6);% pairwise rank 1 precision with single query (see Fig. 7 in the paper)
 
-% my_pdist2 = @(A, B) sqrt( bsxfun(@plus, sum(A.^2, 2), sum(B.^2, 2)') - 2*(A*B'));
-% dist = my_pdist2(Hist_test', Hist_query');
 dist = sqdist(Hist_test, Hist_query); % distance calculate with single query. Note that Euclidean distance is equivalent to cosine distance if vectors are l2-normalized
 %dist_cos_max = (2-dist_max)./2; % cosine distance with MultiQ_max, used for re-ranking
 
