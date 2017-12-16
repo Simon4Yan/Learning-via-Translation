@@ -1,4 +1,4 @@
-# -- This version is not fully edited and will be updated soon. --
+# -- This version is not fully edited and will be updated soon --
 
 
 # Learning-via-Translation
