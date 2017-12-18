@@ -33,10 +33,10 @@ cd SPGAN-master
 ![](./pics/fig2.PNG)
 ## Train Example
 ```bash
-python train.py --dataset=market2duke --gpu_id=0
+python train_spgan.py --dataset=market2duke --gpu_id=0
 ```
 
 ## Test Example
 ```bash
-python test.py --dataset=market2duke
+python test_spgan.py --dataset=market2duke
 ```
