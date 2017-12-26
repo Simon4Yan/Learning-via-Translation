@@ -1,4 +1,4 @@
-net: "models/market/ResNet_50/ResNet_50_train.prototxt"
+net: "models/duke/ResNet_50_domain/ResNet_50_train.prototxt"
 
 display: 20
 average_loss: 20
@@ -12,6 +12,6 @@ max_iter: 50000
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 30000
-snapshot_prefix: "output/market_train/IDE_ResNet_50"
+snapshot_prefix: "output/duke_train/IDE_ResNet_50_market2duke"
 solver_mode: GPU
 random_seed: 20
