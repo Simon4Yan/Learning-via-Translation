@@ -14,7 +14,7 @@ For more reference, you can find our modified training code and generating code 
 
 **2. Feature learning**
 
-With the translated dataset that contain labels, feature learning methods are applied to train re-ID models.
+With the translated dataset that contains labels, feature learning methods are applied to train re-ID models.
 
 ## Feature Learning
 The code for re-ID feature learning is mainly modified from [IDE](https://github.com/zhunzhong07/IDE-baseline-Market-1501). 
@@ -46,7 +46,7 @@ The code for re-ID feature learning is mainly modified from [IDE](https://github
   cd $IDE_ROOT/market_evaluation
   Run Matlab: extract_feature.m
   # The IDE features are saved under: "market_evaluation/feat"
-    # 2. DukeMTMC-reID:
+  # 2. DukeMTMC-reID:
   cd $IDE_ROOT/duke_evaluation
   Run Matlab: extract_feature.m
   # The IDE features are saved under: "duke_evaluation/feat"
@@ -59,9 +59,11 @@ The code for re-ID feature learning is mainly modified from [IDE](https://github
 ### Trained Model
 
  - Baseline models
-    IDE_Market and  IDE_Duke: [Onedrive](https://1drv.ms/f/s!AuAnGqBokkOIgwHYqbEen3KTTV-j); [Baidu Yun](https://pan.baidu.com/s/1eUcqHwu)
+ 
+    IDE_Market and IDE_Duke: [Onedrive](https://1drv.ms/f/s!AuAnGqBokkOIgwHYqbEen3KTTV-j); [Baidu Yun](https://pan.baidu.com/s/1eUcqHwu)
  
  - IDE models trained on the translated images:
+ 
     IDE_Market2duke (SPGAN) and IDE_Duke2Market (SPGAN): 
 	[Onedrive](https://1drv.ms/f/s!AuAnGqBokkOIgwCuf2OiqGn9Gmbm); [Baidu Yun](https://pan.baidu.com/s/1eTeItl4)
 
@@ -69,7 +71,7 @@ The code for re-ID feature learning is mainly modified from [IDE](https://github
 ### Results
 ![](./pics/fig2.PNG)
 
-***(see more details in paper)***
+*(see more details in paper)*
 
 ### Contributing
 
