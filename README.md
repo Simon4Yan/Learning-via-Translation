@@ -1,6 +1,3 @@
-# -- This version is not fully edited and will be updated soon --
-
-
 # Learning-via-Translation
 Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identification (https://arxiv.org/pdf/1711.07027.pdf) 
 
@@ -70,8 +67,8 @@ The code for re-ID feature learning is mainly modified from [IDE](https://github
 
 
 ### Results
-![](./pics/market.png)
-![](./pics/duke.png)
+![](./pics/fig2.PNG)
+
 ***(see more details in paper)***
 
 ### Contributing
