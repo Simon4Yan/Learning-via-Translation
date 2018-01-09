@@ -65,12 +65,13 @@ The code for re-ID feature learning is mainly modified from [IDE](https://github
     IDE_Market and  IDE_Duke: [Onedrive](https://1drv.ms/f/s!AuAnGqBokkOIgwHYqbEen3KTTV-j); [Baidu Yun](https://pan.baidu.com/s/1eUcqHwu)
  
  - IDE models trained on the translated images:
-    IDE_Market2duke (SPGAN) and IDE_Duke2Market (SPGAN): [Onedrive](https://1drv.ms/f/s!AuAnGqBokkOIgwCuf2OiqGn9Gmbm); [Baidu Yun](https://pan.baidu.com/s/1eTeItl4)
+    IDE_Market2duke (SPGAN) and IDE_Duke2Market (SPGAN): 
+	[Onedrive](https://1drv.ms/f/s!AuAnGqBokkOIgwCuf2OiqGn9Gmbm); [Baidu Yun](https://pan.baidu.com/s/1eTeItl4)
 
 
 ### Results
-![](./pics/market.PNG)
-![](./pics/duke.PNG)
+![](./pics/market.png)
+![](./pics/duke.png)
 ***(see more details in paper)***
 
 ### Contributing
