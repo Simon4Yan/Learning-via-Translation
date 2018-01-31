@@ -81,7 +81,6 @@ with tf.device('/gpu:%d' % gpu_id):
     T_eucd_pos = tf.pow(tf.subtract(b_metric, b2a_metric), 2)
     T_metric_POS = tf.reduce_sum(T_eucd_pos, 1)
 	
-    P_loss = S_metric_POS + T_metric_POS
     #--Negative Pair--#
     neg = tf.pow(tf.subtract(a_metric, b_metric), 2)
     neg = tf.reduce_sum(neg, 1)
