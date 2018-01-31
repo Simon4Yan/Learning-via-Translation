@@ -66,14 +66,14 @@ with tf.device('/gpu:%d' % gpu_id):
     a2b_dis = models.discriminator(a2b, 'b', reuse=True)
     a2b_sample_dis = models.discriminator(a2b_sample, 'b', reuse=True)
 	
-    # siamese network
+    #--siamese network--#
     a_metric = tf.nn.l2_normalize(models.metric_net(a_real, 'metric'), 1)
     a2b_metric = tf.nn.l2_normalize(models.metric_net(a2b, 'metric', reuse=True), 1)
 	
     b_metric = tf.nn.l2_normalize(models.metric_net(b_real, 'metric', reuse=True), 1)
     b2a_metric = tf.nn.l2_normalize(models.metric_net(b2a, 'metric', reuse=True), 1)
 	
-	#--Postive Pair--#
+    #--Postive Pair--#
     C = tf.constant(margin, name="C")
     S_eucd_pos = tf.pow(tf.subtract(a_metric, a2b_metric), 2)
     S_metric_POS = tf.reduce_sum(S_eucd_pos, 1)
@@ -88,7 +88,7 @@ with tf.device('/gpu:%d' % gpu_id):
     neg = tf.sqrt(neg + 1e-6)
     NEG = tf.pow(tf.maximum(tf.subtract(C, neg), 0), 2)
 
-	#--contrastive loss--#
+    #--contrastive loss--#
     m_loss = tf.identity(( T_metric_POS + S_metric_POS + 2*NEG)/3.0 , name = 'metric_losses')
 	
     #--losses--#
