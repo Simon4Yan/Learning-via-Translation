@@ -1,7 +1,6 @@
 from __future__ import absolute_import, division, print_function
 
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import Utils.utils as utils
 import models.models_spgan as models
 import argparse
@@ -31,7 +30,7 @@ with tf.Session() as sess:
     b2a2b = models.generator(b2a, 'a2b', reuse=True)
     a2b2a = models.generator(a2b, 'b2a', reuse=True)
 
-    # retore
+    #--retore--#
     saver = tf.train.Saver()
     ckpt_path = utils.load_checkpoint('./checkpoints/' + dataset + '_spgan', sess, saver)
     saver.restore(sess, ckpt_path)
@@ -41,7 +40,7 @@ with tf.Session() as sess:
     else:
         print('Copy variables from % s' % ckpt_path)
 
-    # test
+    #--test--#
     a_list = glob('./datasets/' + dataset + '/bounding_box_train-Market/*.jpg')
     b_list = glob('./datasets/' + dataset + '/bounding_box_train-Duke/*.jpg')
 
@@ -57,7 +56,7 @@ with tf.Session() as sess:
         a_img_opt =  a2b_opt
 
         img_name = os.path.basename(a_list[i])
-        img_name = 'market2duke_'+img_name
+        img_name = 'duke_'+img_name
         im.imwrite(im.immerge(a_img_opt, 1, 1), a_save_dir + img_name)
         print('Save %s' % (a_save_dir + img_name))
 
@@ -69,7 +68,7 @@ with tf.Session() as sess:
         b2a_opt = sess.run(b2a, feed_dict={b_real: b_real_ipt})
         b_img_opt = b2a_opt
         img_name = os.path.basename(b_list[i])
-        img_name = 'duke2market_'+img_name
+        img_name = 'market_'+img_name
         im.imwrite(im.immerge(b_img_opt, 1, 1), b_save_dir + img_name)
         print('Save %s' % (b_save_dir + img_name))
 		

@@ -7,16 +7,13 @@ netname = 'ResNet_50'; % network: CaffeNet  or ResNet_50
 %% add necessary paths
 query_dir = 'dataset/query/';% query directory
 test_dir = 'dataset/bounding_box_test/';% database directory
-train_dir = 'dataset/bounding_box_train/';% training directory
 %% calculate query features
-Hist_query = importdata(['test/IDE_' netname '_query_market2duke_AGAIN_pool5.mat']);
-% Hist_query = importdata(['feat/IDE_' netname '_baseline_train_stage2_SI_pool5.mat']);
-% Hist_query = importdata('feat_multi/LOVE_Hist_query_max.mat');
+Hist_query = importdata(['test/IDE_' netname '_query.mat']);
 
 nQuery = size(Hist_query, 2);
 
 %% calculate database features
-Hist_test = importdata(['test/IDE_' netname '_test_market2duke_AGAIN_pool5.mat']);
+Hist_test = importdata(['test/IDE_' netname '_test.mat']);
 nTest = size(Hist_test, 2);
 
 %% normalize
@@ -30,32 +27,6 @@ for n = 1:size(Hist_query, 1)
     Hist_query(n, :) = Hist_query(n, :)./sum_val;
 end
 
-% sum_val = sqrt(sum(Hist_train.^2));
-% for n = 1:size(Hist_train, 1)
-%     Hist_train(n, :) = Hist_train(n, :)./sum_val;
-% end
-%% calculate the ID and camera for training images
-train_files = dir([train_dir '*.jpg']);
-trainID = zeros(length(train_files), 1);
-trainCAM = zeros(length(train_files), 1);
-if ~exist('data/trainID_duke.mat')
-    for n = 1:length(train_files)
-        img_name = train_files(n).name;
-        if strcmp(img_name(1), '-') % junk images
-            trainID(n) = -1;
-            trainCAM(n) = str2num(img_name(5));
-        else
-            %img_name
-            trainID(n) = str2num(img_name(1:4));
-            trainCAM(n) = str2num(img_name(7));
-        end
-    end
-    save('data/trainID_duke.mat', 'trainID');
-    save('data/trainCAM_duke.mat', 'trainCAM');
-else
-    trainID = importdata('data/trainID_duke.mat');
-    trainCAM = importdata('data/trainCAM_duke.mat');    
-end
 %% calculate the ID and camera for database images
 test_files = dir([test_dir '*.jpg']);
 testID = zeros(length(test_files), 1);
@@ -138,36 +109,3 @@ end
 CMC = mean(CMC);
 %% print result
 fprintf('single query:                                    mAP = %f, r1 precision = %f\r\n', mean(ap), CMC(1));
-%[ap_CM, r1_CM] = draw_confusion_matrix(ap_pairwise, r1_pairwise, queryCam);
-%fprintf('average of confusion matrix with single query:  mAP = %f, r1 precision = %f\r\n', (sum(ap_CM(:))-sum(diag(ap_CM)))/30, (sum(r1_CM(:))-sum(diag(r1_CM)))/30);
-% 
-% %% re-ranking setting
-% k1 = 20;
-% k2 = 6;
-% lambda = 0.3;
-% %% Euclidean + re-ranking
-% query_num = size(Hist_query, 2);
-% dist_eu_re = re_ranking( [Hist_query Hist_test], 1, 1, query_num, k1, k2, lambda);
-% [CMC_eu_re, map_eu_re, ~, ~] = evaluation(dist_eu_re,  testID, queryID,  testCAM, queryCAM);
-% 
-% fprintf(['The IDE (' netname ') + Euclidean + re-ranking performance:\n']);
-% fprintf(' Rank1,  mAP\n');
-% fprintf('%5.2f%%, %5.2f%%\n\n', CMC_eu_re(1) * 100, map_eu_re(1)*100);
-
-
-%% plot CMC curves
-% figure;
-% s = 50;
-% CMC_curve = CMC ;
-% plot(1:s, CMC_curve(:, 1:s));
-
-%% train and test XQDA
-% [train_sample1, train_sample2, label1, label2] = gen_train_sample_xqda(trainID, trainCAM, Hist_train); % generate pairwise training features for XQDA
-% [W, M_xqda] = XQDA(train_sample1, train_sample2, label1, label2);% train XQDA
-% % Calculate distance
-% dist_xqda = MahDist(M_xqda, Hist_test' * W, Hist_query' * W); % calculate MahDist between query and gallery boxes with learnt subspace. Smaller distance means larger similarity
-% [CMC_xqda, map_xqda, ~, ~] = evaluation(dist_xqda, testID, queryID, testCAM, queryCAM);
-% 
-% fprintf(['The IDE (' netname ') + XQDA performance:\n']);
-% fprintf(' Rank1,  mAP\n');
-% fprintf('%5.2f%%, %5.2f%%\n\n', CMC_xqda(1) * 100, map_xqda(1)*100);
