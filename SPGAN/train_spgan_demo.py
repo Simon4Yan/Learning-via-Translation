@@ -198,7 +198,7 @@ try:
         #--train D_a--#
         d_summary_a_opt, _ = sess.run([d_summary_a, d_a_train_op], feed_dict={a_real: a_real_ipt, b2a_sample: b2a_sample_ipt})
         summary_writer.add_summary(d_summary_a_opt, it)
-		#--train metric--#
+        #--train metric--#
         metric_summary_opt, _  = sess.run([metric_summary, metric_train_op], feed_dict={a_real: a_real_ipt, b_real: b_real_ipt, a2b: a2b_opt, b2a: b2a_opt})
         summary_writer.add_summary(metric_summary_opt, it)
         
