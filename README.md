@@ -88,6 +88,6 @@ arXiv:1610.02984, 2016.
 The code is released under the MIT License. See the attached LICENSE file.
 
 ### Frequently Asked Questions
-1. The direct transfer performance using pytorch is much lower than caffe.
+Q1: The direct transfer performance using pytorch is much lower than caffe.
 
 Ans: We find the BN is the key factor to this gap, and see more in [here](https://github.com/Simon4Yan/Learning-via-Translation/issues/1).
