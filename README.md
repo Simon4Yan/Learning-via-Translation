@@ -79,10 +79,28 @@ If you have an implementation for a different framework, or an enhanced version 
 
 ### References
 
-[1] W. Deng, L. Zheng, G. Kang, Y. Yang, Q. Ye, and J. Jiao. Image-image domain adaptation with preserved self-similarity and domain-dissimilarity for person re-identification. arXiv preprint arXiv:1711.07027, 2017. 
+[1] W. Deng, L. Zheng, Q. Ye, G. Kang, Y. Yang, and J. Jiao. Image-image domain adaptation with preserved self-similarity and domain-dissimilarity for person re-identification. arXiv preprint arXiv:1711.07027, 2017. 
 
 [2] L. Zheng, Y. Yang, and A. G. Hauptmann. Person reidentification: Past, present and future. arXiv preprint
 arXiv:1610.02984, 2016.
-
+ ```
+@inproceedings{image-image18,
+  author    = {Weijian Deng and
+               Liang Zheng and
+               Qixiang Ye and
+               Guoliang Kang and
+               Yi Yang and
+               Jianbin Jiao},
+  title     = {Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity
+               for Person Re-identification},
+  booktitle = {CVPR},
+  year      = {2018},
+}
+ ```
 ### License
 The code is released under the MIT License. See the attached LICENSE file.
+
+### Frequently Asked Questions
+Q1: The direct transfer performance using pytorch is much lower than caffe.
+
+Ans: We find the BN is the key factor to this gap, and see more in [here](https://github.com/Simon4Yan/Learning-via-Translation/issues/1).
