@@ -41,11 +41,11 @@ with tf.Session() as sess:
         print('Copy variables from % s' % ckpt_path)
 
     #--test--#
-    a_list = glob('./datasets/' + dataset + '/bounding_box_train-Market/*.jpg')
-    b_list = glob('./datasets/' + dataset + '/bounding_box_train-Duke/*.jpg')
+    b_list = glob('./Datasets/' + dataset + '/bounding_box_train-Market/*.jpg')
+    a_list = glob('./Datasets/' + dataset + '/bounding_box_train-Duke/*.jpg')
 
-    a_save_dir = './test_predictions/' + dataset + '_spgan' + '/bounding_box_train_market2duke/'
-    b_save_dir = './test_predictions/' + dataset + '_spgan' + '/bounding_box_train_duke2market/'
+    b_save_dir = './test_predictions/' + dataset + '_spgan' + '/bounding_box_train_market2duke/'
+    a_save_dir = './test_predictions/' + dataset + '_spgan' + '/bounding_box_train_duke2market/'
     utils.mkdir([a_save_dir, b_save_dir])
 
 		
@@ -56,7 +56,7 @@ with tf.Session() as sess:
         a_img_opt =  a2b_opt
 
         img_name = os.path.basename(a_list[i])
-        img_name = 'duke_'+img_name
+        img_name = 'market_'+img_name # market_style
         im.imwrite(im.immerge(a_img_opt, 1, 1), a_save_dir + img_name)
         print('Save %s' % (a_save_dir + img_name))
 
@@ -68,7 +68,7 @@ with tf.Session() as sess:
         b2a_opt = sess.run(b2a, feed_dict={b_real: b_real_ipt})
         b_img_opt = b2a_opt
         img_name = os.path.basename(b_list[i])
-        img_name = 'market_'+img_name
+        img_name = 'duke_'+img_name #duke_style
         im.imwrite(im.immerge(b_img_opt, 1, 1), b_save_dir + img_name)
         print('Save %s' % (b_save_dir + img_name))
 		
