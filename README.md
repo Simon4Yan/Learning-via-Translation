@@ -104,3 +104,7 @@ The code is released under the MIT License. See the attached LICENSE file.
 Q1: The direct transfer performance using pytorch is much lower than caffe.
 
 Ans: We find the BN is the key factor to this gap, and see more in [here](https://github.com/Simon4Yan/Learning-via-Translation/issues/1).
+
+Q2: Train IDE or IDE+ by using pytorch?
+
+Ans: Yes, We recommend [here](https://github.com/layumi/Person_reID_baseline_pytorch). Note that bn needed to be fixed (see Q1).
