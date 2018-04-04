@@ -107,4 +107,6 @@ Ans: We find the BN is the key factor to this gap, and see more in [here](https:
 
 Q2: Train IDE or IDE+ by using pytorch?
 
-Ans: Yes, We recommend [here](https://github.com/layumi/Person_reID_baseline_pytorch). Note that bn needed to be fixed (see Q1).
+Ans: Yes, We recommend [Person_reID_baseline_pytorch](https://github.com/layumi/Person_reID_baseline_pytorch). Note that bn needed to be fixed (see Q1).
+
+(We also give a simple code of IDE and IDE+ [here](https://github.com/Simon4Yan/Person_reID_baseline_pytorch), which is modifed from [Person_reID_baseline_pytorch](https://github.com/layumi/Person_reID_baseline_pytorch)).
