@@ -6,7 +6,7 @@ import models.models_spgan as models
 import argparse
 import numpy as np
 import tensorflow as tf
-import utils.image_utils as im
+import Utils.image_utils as im
 from glob import glob
 
 
