@@ -110,3 +110,7 @@ Q2: Train IDE or IDE+ by using pytorch?
 Ans: Yes, we recommend [Person_reID_baseline_pytorch](https://github.com/layumi/Person_reID_baseline_pytorch). Note that bn needed to be fixed (see Q1).
 
 (We also give a simple code of IDE and IDE+ [here](https://github.com/Simon4Yan/Person_reID_baseline_pytorch), which is modifed from [Person_reID_baseline_pytorch](https://github.com/layumi/Person_reID_baseline_pytorch)).
+
+Q3: The pytorch vision of "Learning via translation".
+
+Ans: Yes, we will release the pytorch vision in few weeks (We are busy in doing a project now).
