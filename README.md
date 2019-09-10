@@ -113,4 +113,4 @@ Ans: Yes, we recommend [Person_reID_baseline_pytorch](https://github.com/layumi/
 
 Q3: The pytorch vision of "Learning via translation".
 
-Ans: Yes, we will release the pytorch vision in few weeks (We are busy in doing a project now).
+Ans: Yes, please see [here]( https://github.com/Simon4Yan/eSPGAN).
