@@ -39,7 +39,7 @@ python train_spgan_demo.py --dataset=market2duke --gpu_id=0
 ```bash
 python test_spgan.py --dataset=market2duke
 ``` 
-- Translated images by SPGAN: [OneDrive](https://1drv.ms/u/s!AuAnGqBokkOIgnszfb2aPkH_hpPf); [Baidu Yun](https://pan.baidu.com/s/1c3P4Nug)
+- Translated images by SPGAN: [GoogleDrive](https://drive.google.com/file/d/1gkl1U-CX4XhRHMOVWAhj95quH_iVgJux/view?usp=sharing); [Baidu Yun](https://pan.baidu.com/s/1c3P4Nug)
 
 
 ## Contributing
